@@ -1,0 +1,40 @@
+﻿@model EVENTMGT.Models.Attendee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title">Attendee Details</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <b>Names</b>
+                    <dd>@Html.DisplayFor(model => model.fullName)</dd>
+
+                    <b>Phone number</b>
+                    <dd>@Html.DisplayFor(model => model.phone)</dd>
+
+                    <b>Email</b>
+                    <dd>@Html.DisplayFor(model => model.email)</dd>
+
+                    <b>Address</b>
+                    <dd>@Html.DisplayFor(model => model.address)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-secondary" })
+        </p>
+    </div>
+</div>

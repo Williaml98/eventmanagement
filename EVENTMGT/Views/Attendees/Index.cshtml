@@ -1,0 +1,85 @@
+﻿@model IEnumerable<EVENTMGT.Models.Attendee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Attendees</h2>
+<br />
+<br />
+@using (Html.BeginForm("Index", "Attendees", FormMethod.Get))
+{
+    <div class="form-inline">
+        <div class="form-group">
+            @Html.TextBox("searchString", null, new { @class = "form-control", placeholder = "Search by name" })
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+}
+<br />
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Names
+            </th>
+            <th>
+                Phone number
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                @*<td>
+            <div class="btn-group" role="group" aria-label="Actions">
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+            </div>
+        </td>*@
+                <td>
+                    <div class="btn-group" role="group" aria-label="Actions">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })
+                        <span class="btn btn-default" aria-hidden="true">&nbsp;</span>
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
+                        <span class="btn btn-default" aria-hidden="true">&nbsp;</span>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary", role = "button" }) |
+    @* @Html.ActionLink("Generate PDF", "GeneratePDF", null, new { @class = "btn btn-success", role = "button" })*@
+    @Html.ActionLink("Generate PDF", "GeneratePDF", new { searchString = Request.QueryString["searchString"] }, new { @class = "btn btn-success", role = "button" })
+</p>

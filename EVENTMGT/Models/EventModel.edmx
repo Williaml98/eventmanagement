@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EVENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EventDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eventName" Type="nvarchar" MaxLength="100" />
+          <Property Name="eventDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="venue" Type="int" />
+          <Property Name="eventDate" Type="date" />
+          <Property Name="eventTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <EntityType Name="EventRegistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eventName" Type="int" />
+          <Property Name="attendee" Type="int" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeEvent" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="place" Type="nvarchar" MaxLength="100" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="capacity" Type="int" />
+        </EntityType>
+        <Association Name="FK_EventDetails_EventType">
+          <End Role="EventType" Type="Self.EventType" Multiplicity="0..1" />
+          <End Role="EventDetails" Type="Self.EventDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventDetails">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventDetails_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="0..1" />
+          <End Role="EventDetails" Type="Self.EventDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventDetails">
+              <PropertyRef Name="venue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventRegistration_Attendee">
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="0..1" />
+          <End Role="EventRegistration" Type="Self.EventRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventRegistration">
+              <PropertyRef Name="attendee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventRegistration_EventDetails">
+          <End Role="EventDetails" Type="Self.EventDetails" Multiplicity="0..1" />
+          <End Role="EventRegistration" Type="Self.EventRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventRegistration">
+              <PropertyRef Name="eventName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EVENTModelStoreContainer">
+          <EntitySet Name="Attendee" EntityType="Self.Attendee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventDetails" EntityType="Self.EventDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventRegistration" EntityType="Self.EventRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EventDetails_EventType" Association="Self.FK_EventDetails_EventType">
+            <End Role="EventType" EntitySet="EventType" />
+            <End Role="EventDetails" EntitySet="EventDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventDetails_Venue" Association="Self.FK_EventDetails_Venue">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="EventDetails" EntitySet="EventDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventRegistration_Attendee" Association="Self.FK_EventRegistration_Attendee">
+            <End Role="Attendee" EntitySet="Attendee" />
+            <End Role="EventRegistration" EntitySet="EventRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventRegistration_EventDetails" Association="Self.FK_EventRegistration_EventDetails">
+            <End Role="EventDetails" EntitySet="EventDetails" />
+            <End Role="EventRegistration" EntitySet="EventRegistration" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EVENTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attendee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EventRegistrations" Relationship="Self.FK_EventRegistration_Attendee" FromRole="Attendee" ToRole="EventRegistration" />
+        </EntityType>
+        <EntityType Name="EventDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="eventDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="venue" Type="Int32" />
+          <Property Name="eventDate" Type="DateTime" Precision="0" />
+          <Property Name="eventTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="Int32" />
+          <NavigationProperty Name="EventType" Relationship="Self.FK_EventDetails_EventType" FromRole="EventDetails" ToRole="EventType" />
+          <NavigationProperty Name="Venue1" Relationship="Self.FK_EventDetails_Venue" FromRole="EventDetails" ToRole="Venue" />
+          <NavigationProperty Name="EventRegistrations" Relationship="Self.FK_EventRegistration_EventDetails" FromRole="EventDetails" ToRole="EventRegistration" />
+        </EntityType>
+        <EntityType Name="EventRegistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventName" Type="Int32" />
+          <Property Name="attendee" Type="Int32" />
+          <NavigationProperty Name="Attendee1" Relationship="Self.FK_EventRegistration_Attendee" FromRole="EventRegistration" ToRole="Attendee" />
+          <NavigationProperty Name="EventDetail" Relationship="Self.FK_EventRegistration_EventDetails" FromRole="EventRegistration" ToRole="EventDetails" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeEvent" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EventDetails" Relationship="Self.FK_EventDetails_EventType" FromRole="EventType" ToRole="EventDetails" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="place" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="capacity" Type="Int32" />
+          <NavigationProperty Name="EventDetails" Relationship="Self.FK_EventDetails_Venue" FromRole="Venue" ToRole="EventDetails" />
+        </EntityType>
+        <Association Name="FK_EventRegistration_Attendee">
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="0..1" />
+          <End Role="EventRegistration" Type="Self.EventRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventRegistration">
+              <PropertyRef Name="attendee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventDetails_EventType">
+          <End Role="EventType" Type="Self.EventType" Multiplicity="0..1" />
+          <End Role="EventDetails" Type="Self.EventDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventDetails">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventDetails_Venue">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="0..1" />
+          <End Role="EventDetails" Type="Self.EventDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventDetails">
+              <PropertyRef Name="venue" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventRegistration_EventDetails">
+          <End Role="EventDetails" Type="Self.EventDetail" Multiplicity="0..1" />
+          <End Role="EventRegistration" Type="Self.EventRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EventRegistration">
+              <PropertyRef Name="eventName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EVENTEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendees" EntityType="Self.Attendee" />
+          <EntitySet Name="EventDetails" EntityType="Self.EventDetail" />
+          <EntitySet Name="EventRegistrations" EntityType="Self.EventRegistration" />
+          <EntitySet Name="EventTypes" EntityType="Self.EventType" />
+          <EntitySet Name="Venues" EntityType="Self.Venue" />
+          <AssociationSet Name="FK_EventRegistration_Attendee" Association="Self.FK_EventRegistration_Attendee">
+            <End Role="Attendee" EntitySet="Attendees" />
+            <End Role="EventRegistration" EntitySet="EventRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventDetails_EventType" Association="Self.FK_EventDetails_EventType">
+            <End Role="EventType" EntitySet="EventTypes" />
+            <End Role="EventDetails" EntitySet="EventDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventDetails_Venue" Association="Self.FK_EventDetails_Venue">
+            <End Role="Venue" EntitySet="Venues" />
+            <End Role="EventDetails" EntitySet="EventDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventRegistration_EventDetails" Association="Self.FK_EventRegistration_EventDetails">
+            <End Role="EventDetails" EntitySet="EventDetails" />
+            <End Role="EventRegistration" EntitySet="EventRegistrations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EVENTModelStoreContainer" CdmEntityContainer="EVENTEntities1">
+          <EntitySetMapping Name="Attendees">
+            <EntityTypeMapping TypeName="EVENTModel.Attendee">
+              <MappingFragment StoreEntitySet="Attendee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventDetails">
+            <EntityTypeMapping TypeName="EVENTModel.EventDetail">
+              <MappingFragment StoreEntitySet="EventDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+                <ScalarProperty Name="venue" ColumnName="venue" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="eventTime" ColumnName="eventTime" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventRegistrations">
+            <EntityTypeMapping TypeName="EVENTModel.EventRegistration">
+              <MappingFragment StoreEntitySet="EventRegistration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="eventName" ColumnName="eventName" />
+                <ScalarProperty Name="attendee" ColumnName="attendee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTypes">
+            <EntityTypeMapping TypeName="EVENTModel.EventType">
+              <MappingFragment StoreEntitySet="EventType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typeEvent" ColumnName="typeEvent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venues">
+            <EntityTypeMapping TypeName="EVENTModel.Venue">
+              <MappingFragment StoreEntitySet="Venue">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

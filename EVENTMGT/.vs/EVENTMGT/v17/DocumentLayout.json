@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Dot net\\Projects\\EVENTMGT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|d:\\dot net\\projects\\eventmgt\\controllers\\registrationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|solutionrelative:controllers\\registrationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|d:\\dot net\\projects\\eventmgt\\views\\shared\\_loginhandler.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|solutionrelative:views\\shared\\_loginhandler.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|d:\\dot net\\projects\\eventmgt\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|d:\\dot net\\projects\\eventmgt\\views\\registrations\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|solutionrelative:views\\registrations\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|d:\\dot net\\projects\\eventmgt\\views\\registrations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C32A2E36-F946-4ED6-B6AB-2C64E1DAC5D8}|EVENTMGT.csproj|solutionrelative:views\\registrations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 254,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LogInHandler.cshtml",
+              "DocumentMoniker": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Shared\\_LogInHandler.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LogInHandler.cshtml",
+              "ToolTip": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Shared\\_LogInHandler.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LogInHandler.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-11T16:05:30.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-11T16:04:17.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Registrations\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Registrations\\Login.cshtml",
+              "ToolTip": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Registrations\\Login.cshtml",
+              "RelativeToolTip": "Views\\Registrations\\Login.cshtml",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-11T16:03:00.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Registrations\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Registrations\\Create.cshtml",
+              "ToolTip": "D:\\Dot net\\Projects\\EVENTMGT\\Views\\Registrations\\Create.cshtml",
+              "RelativeToolTip": "Views\\Registrations\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-11T15:39:43.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegistrationsController.cs",
+              "DocumentMoniker": "D:\\Dot net\\Projects\\EVENTMGT\\Controllers\\RegistrationsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RegistrationsController.cs",
+              "ToolTip": "D:\\Dot net\\Projects\\EVENTMGT\\Controllers\\RegistrationsController.cs",
+              "RelativeToolTip": "Controllers\\RegistrationsController.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAH0AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T11:25:24.834Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

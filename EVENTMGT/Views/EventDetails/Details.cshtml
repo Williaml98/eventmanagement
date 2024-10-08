@@ -1,0 +1,66 @@
+﻿@model EVENTMGT.Models.EventDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EventDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.eventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventType.typeEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventType.typeEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Venue1.place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Venue1.place)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
